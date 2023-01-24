@@ -232,7 +232,7 @@ namespace HabitTracker
             }
         }
 
-        private static void OnGet(Action action)
+        private static void OnGet(Action action = null!)
         {
             CheckIfTableExists();
             using (var connection = new SqliteConnection(CONNECTION_STRING))
@@ -304,7 +304,7 @@ namespace HabitTracker
 
         public static void Delete()
         {
-            OnGet(null);
+            OnGet();
 
             var recordId = GetNumberInput("\n\nPlease type the Id of the record you want to delete. Type 0 to return to main menu.\n");
 
